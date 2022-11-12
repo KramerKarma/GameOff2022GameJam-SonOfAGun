@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerProjectileSpawner : MonoBehaviour
 {
@@ -9,24 +10,27 @@ public class PlayerProjectileSpawner : MonoBehaviour
     float timer;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform spawnPos;
+    [SerializeField] Slider ActionBar;
     // Start is called before the first frame update
     void Start()
     {
         timer = 0.3f;
+        ActionBar.value = 0.8f;
     }
 
     // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
+        ActionBar.value = 1 - timer / Timer;
         if (timer<=0)
         {
-            StartCoroutine(ShootEnemy());
+            ShootEnemy();
             timer = Timer;
         }
     }
 
-    IEnumerator ShootEnemy()
+    void ShootEnemy()
     {
         if (enemyTransform.Count > 0)
         {
@@ -42,7 +46,6 @@ public class PlayerProjectileSpawner : MonoBehaviour
             {
                 enemyTransform.RemoveAt(IndexToDelete[IndexToDelete.Count - 1 - i]);
             }
-            yield return new WaitForSeconds(0.3f);
             GameObject tempGBholder = GameObject.Instantiate(projectile, spawnPos.position, Quaternion.identity);
             tempGBholder.GetComponent<Rigidbody2D>().velocity = (FindClosest(transform.position) - spawnPos.position).normalized * speed;
 
