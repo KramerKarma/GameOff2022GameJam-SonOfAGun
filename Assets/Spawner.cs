@@ -8,7 +8,11 @@ public class Spawner : MonoBehaviour
     [SerializeField] float TIMER = 3f;
     float time = 0f;
     [SerializeField] float Counter = 30;
-    [SerializeField] PlayerProjectileSpawner playerInfo;
+    [SerializeField] TargetManager playerInfo;
+    private void Start()
+    {
+        if (!playerInfo) playerInfo = GameObject.Find("Player").GetComponent<TargetManager>();
+    }
     // Update is called once per frame
     void Update()
     {
