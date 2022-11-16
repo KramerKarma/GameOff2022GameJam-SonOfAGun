@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2023904566397476483}
-  speed: 1
+  speed: 3
 --- !u!114 &2023904566397476511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a82c9f6ed0add14dac294a5b7d10e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HEALTHPOINT: 100
+  HEALTHPOINT: 30
   healthBar: {fileID: 9089417488073590626}
 --- !u!1 &2023904566465840371
 GameObject:

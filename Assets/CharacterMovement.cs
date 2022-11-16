@@ -5,13 +5,16 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     Vector2 direction;
+    Vector2 faceDire;
     [SerializeField] float speed = 15f;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] TargetManager targetManager;
     Vector3 mousePostion;
     // Start is called before the first frame update
     void Start()
     {
         if (!rb) rb = GetComponent<Rigidbody2D>();
+        if (!targetManager) targetManager = GetComponent<TargetManager>();
     }
 
     // Update is called once per frame
@@ -30,5 +33,9 @@ public class CharacterMovement : MonoBehaviour
     {
         //Debug.Log(mousePostion.x - transform.position.x);
         rb.velocity = direction * speed;
+        Vector3 attackingPos = targetManager.FindClosest(transform.position);
+        faceDire = new Vector2(attackingPos.x - transform.position.x, attackingPos.y - transform.position.y).normalized;
+        float angle = Mathf.Atan2(faceDire.y, faceDire.x) * Mathf.Rad2Deg;
+        targetManager.RotateTheGFX(angle);
     }
 }
