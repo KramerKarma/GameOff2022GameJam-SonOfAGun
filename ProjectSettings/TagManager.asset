@@ -15,11 +15,11 @@ TagManager:
   - UI
   - 
   - 
+  - Player
   - 
   - 
-  - 
-  - 
-  - 
+  - Boundary
+  - Enemy
   - 
   - 
   - 
@@ -54,4 +54,7 @@ TagManager:
     locked: 0
   - name: EFX
     uniqueID: 77664781
+    locked: 0
+  - name: UI
+    uniqueID: 135496513
     locked: 0
