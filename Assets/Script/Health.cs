@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] float HEALTHPOINT = 100;
-    float hp = 100;
+    [SerializeField] protected float HEALTHPOINT = 100;
+    [SerializeField] protected float hp = 100;
     [SerializeField] Slider healthBar;
     private void Awake()
     {
         hp = HEALTHPOINT;
         healthBar.value = 1;
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         hp -= damage;
         healthBar.value = hp / HEALTHPOINT;
@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void Heal(int heal)
+    public void Heal(float heal)
     {
         hp += heal;
         if (hp> HEALTHPOINT)

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2476371324821828635}
   - component: {fileID: 9089417488073590626}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3192016129431332062}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 6035077789229155662}
   - component: {fileID: 1848672598615856931}
   - component: {fileID: 6796279271034660236}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,8 @@ GameObject:
   - component: {fileID: 2023904566397476483}
   - component: {fileID: 2023904566397476510}
   - component: {fileID: 2023904566397476511}
-  m_Layer: 0
+  - component: {fileID: 5433088959309653805}
+  m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -316,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2023904566397476483}
   speed: 3
+  spriteRenderer: {fileID: 2023904566465840333}
 --- !u!114 &2023904566397476511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +331,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HEALTHPOINT: 30
+  hp: 100
   healthBar: {fileID: 9089417488073590626}
+--- !u!114 &5433088959309653805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023904566397476482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618471b4ad4eebf4dbb9937547a38771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDealt: 1
+  AttackAttribute: 1
+  DefenceAttribute: 1
 --- !u!1 &2023904566465840371
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +358,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2023904566465840332}
   - component: {fileID: 2023904566465840333}
-  m_Layer: 0
+  - component: {fileID: 8841869092984322642}
+  m_Layer: 12
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,10 +373,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023904566465840371}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.024, y: 0, z: 0}
+  m_LocalScale: {x: 3.65, y: 3.65, z: 3.65}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2023904566397476509}
   m_RootOrder: 0
@@ -403,8 +422,8 @@ SpriteRenderer:
   m_SortingLayerID: 995946557
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5188679, g: 0.20314167, b: 0.20314167, a: 1}
+  m_Sprite: {fileID: 1194126898, guid: c0faec670ec91284ca24e54549f5a7b9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -414,6 +433,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8841869092984322642
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023904566465840371}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 98acff52f6c27aa49a66a8e3367b067a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5113211760573364536
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +464,7 @@ GameObject:
   - component: {fileID: 6718794123451727392}
   - component: {fileID: 4573253708253364779}
   - component: {fileID: 5637414596472724012}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +540,7 @@ GameObject:
   - component: {fileID: 8781319771827009792}
   - component: {fileID: 1911984478443173861}
   - component: {fileID: 5835644139686181003}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6244865899178460108}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

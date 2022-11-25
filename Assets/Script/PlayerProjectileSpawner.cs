@@ -35,8 +35,9 @@ public class PlayerProjectileSpawner : MonoBehaviour
         if (targetManager.EnemyTransform.Count > 0)
         {
             targetManager.CheckAndRemoveTheNullObject();
-            GameObject tempGBholder = GameObject.Instantiate(projectile, spawnPos.position, Quaternion.identity);
-            tempGBholder.GetComponent<Rigidbody2D>().velocity = (targetManager.FindClosest(transform.position) - spawnPos.position).normalized * speed;
+            GameObject tempGBholder = GameObject.Instantiate(projectile, spawnPos.position, spawnPos.GetComponentInParent<Transform>().rotation);
+            Vector2 direction = (targetManager.FindClosest(transform.position) - spawnPos.position).normalized;
+            tempGBholder.GetComponent<Rigidbody2D>().velocity = direction * speed;
 
         }
         
