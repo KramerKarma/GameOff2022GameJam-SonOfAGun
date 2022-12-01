@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] int damage = 25;
+    [SerializeField] float damage = 25;
     [SerializeField] float timer = 5f;
+    public void AddDamage(float addOn)
+    {
+        damage += addOn;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Health>().TakeDamage(damage);
+            collision.GetComponent<EnemyHealth>().TakeDamage(damage);
         }
         if (collision.CompareTag("Building"))
         {

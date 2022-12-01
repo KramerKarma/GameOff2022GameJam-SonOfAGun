@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] TargetManager targetManager;
     [SerializeField] Transform GFXtran;
     Vector3 mousePostion;
+    float addiSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,4 +50,5 @@ public class CharacterMovement : MonoBehaviour
         float angle = Mathf.Atan2(faceDire.y, faceDire.x) * Mathf.Rad2Deg;
         targetManager.RotateTheGFX(angle);
     }
+    public float AddiSpeed { get {return addiSpeed; } set{ addiSpeed = value; speed += addiSpeed * 0.001f; } }
 }

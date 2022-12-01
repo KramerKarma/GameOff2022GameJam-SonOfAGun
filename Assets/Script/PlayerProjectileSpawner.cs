@@ -11,10 +11,20 @@ public class PlayerProjectileSpawner : MonoBehaviour
     [SerializeField] Transform spawnPos;
     [SerializeField] Slider ActionBar;
     [SerializeField] TargetManager targetManager;
+    [SerializeField] AudioSource audioSource;
     // Start is called before the first frame update
+    float addiStrength;
+    float addiAttackSpeed;
+    public float AddiStrength { get { return addiStrength; }set { addiStrength = value*0.001f; } }
+    public float AddiAttackSpeed { get { return addiAttackSpeed; }set { addiAttackSpeed = value*0.0001f; } }
     void Start()
     {
         timer = 0.3f;
+        if (Timer > addiAttackSpeed)
+        {
+            Timer -= addiAttackSpeed;
+        }
+        
         ActionBar.value = 0.8f;
     }
 
@@ -38,7 +48,8 @@ public class PlayerProjectileSpawner : MonoBehaviour
             GameObject tempGBholder = GameObject.Instantiate(projectile, spawnPos.position, spawnPos.GetComponentInParent<Transform>().rotation);
             Vector2 direction = (targetManager.FindClosest(transform.position) - spawnPos.position).normalized;
             tempGBholder.GetComponent<Rigidbody2D>().velocity = direction * speed;
-
+            if(addiStrength!=0f){ tempGBholder.GetComponent<Projectile>().AddDamage(addiStrength); }
+            audioSource.Play();
         }
         
     }

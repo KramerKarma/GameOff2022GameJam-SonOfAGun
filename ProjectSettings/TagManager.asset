@@ -49,6 +49,9 @@ TagManager:
   - name: Building
     uniqueID: 1102985597
     locked: 0
+  - name: Lootable
+    uniqueID: 2645909503
+    locked: 0
   - name: Player
     uniqueID: 995946557
     locked: 0
