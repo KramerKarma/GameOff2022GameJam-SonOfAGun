@@ -54,4 +54,13 @@ public class PlayerHealth : Health
             healthBarManager.SwitchSprite(3);
         }
     }
+
+    protected override void CheckDeath()
+    {
+        if (hp <= 0)
+        {
+            GameManager.TheGM.EndGame();
+            Destroy(this.gameObject);
+        }
+    }
 }

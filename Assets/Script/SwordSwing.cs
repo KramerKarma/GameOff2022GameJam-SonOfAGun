@@ -8,6 +8,7 @@ public class SwordSwing : MonoBehaviour
     float  timer;
     [SerializeField] MeeleAttackColliderCheck SwordSwingGFX;
     [SerializeField] Transform SwordSwingPosHolder;
+    [SerializeField] AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class SwordSwing : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
+            audioSource.Play();
             timer = Timer;
             SwordSwingGFX.gameObject.SetActive(true);
         }

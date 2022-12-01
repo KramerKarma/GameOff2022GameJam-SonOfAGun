@@ -240,8 +240,8 @@ GameObject:
   - component: {fileID: 2023904566397476508}
   - component: {fileID: 2023904566397476483}
   - component: {fileID: 2023904566397476510}
-  - component: {fileID: 2023904566397476511}
   - component: {fileID: 5433088959309653805}
+  - component: {fileID: 1354921857432317506}
   m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
@@ -318,21 +318,6 @@ MonoBehaviour:
   rb: {fileID: 2023904566397476483}
   speed: 3
   spriteRenderer: {fileID: 2023904566465840333}
---- !u!114 &2023904566397476511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023904566397476482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a82c9f6ed0add14dac294a5b7d10e98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HEALTHPOINT: 30
-  hp: 100
-  healthBar: {fileID: 9089417488073590626}
 --- !u!114 &5433088959309653805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +333,25 @@ MonoBehaviour:
   damageToDealt: 1
   AttackAttribute: 1
   DefenceAttribute: 1
+--- !u!114 &1354921857432317506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023904566397476482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61e6a270a2bf1c428f0a7c82dd48293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HEALTHPOINT: 80
+  hp: 100
+  healthBar: {fileID: 9089417488073590626}
+  CoinPrefab: {fileID: 3619384205055959310, guid: 5c208233de0568f44b8a5e78799d84ae, type: 3}
+  XpsPrefab: {fileID: 6948652008247026336, guid: 92d9291246818284fa6e65cdf24ed3c6, type: 3}
+  xp: 3
+  coin: 2
 --- !u!1 &2023904566465840371
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +424,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 995946557
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1194126898, guid: c0faec670ec91284ca24e54549f5a7b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

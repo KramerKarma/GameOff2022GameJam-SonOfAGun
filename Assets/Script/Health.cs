@@ -7,7 +7,8 @@ public class Health : MonoBehaviour
 {
     [SerializeField] protected float HEALTHPOINT = 100;
     [SerializeField] protected float hp = 100;
-    [SerializeField] Slider healthBar;
+    [SerializeField] protected Slider healthBar;
+    public float Healthpoint { get { return HEALTHPOINT; } set { HEALTHPOINT = HEALTHPOINT+value; hp = HEALTHPOINT; } }
     private void Awake()
     {
         hp = HEALTHPOINT;
@@ -17,10 +18,7 @@ public class Health : MonoBehaviour
     {
         hp -= damage;
         healthBar.value = hp / HEALTHPOINT;
-        if (hp<=0)
-        {
-            Destroy(this.gameObject);
-        }
+        CheckDeath();
     }
     public void Heal(float heal)
     {
@@ -28,6 +26,13 @@ public class Health : MonoBehaviour
         if (hp> HEALTHPOINT)
         {
             hp = HEALTHPOINT;
+        }
+    }
+    protected virtual void CheckDeath()
+    {
+        if (hp <= 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }

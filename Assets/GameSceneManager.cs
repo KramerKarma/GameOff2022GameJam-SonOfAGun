@@ -10,4 +10,8 @@ public class GameSceneManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1.0f;
     }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
